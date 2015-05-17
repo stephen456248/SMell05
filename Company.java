@@ -2,6 +2,7 @@
 package smell05;
 
 import java.awt.Color;
+import java.util.Random;
 
 /**
  *
@@ -27,7 +28,10 @@ public class Company {
     }
     
     public void generatePrices(){
-        this.dailyTradeHistory = RandomStockGenerator.generate(10.0);
+        Random random = new Random();
+        int variance = random.nextInt(20)+1;
+        int start = random.nextInt(400)+100;
+        this.dailyTradeHistory = RandomStockGenerator.generate((double)variance,start);
     }
     
     public int [] trades(){

@@ -25,7 +25,12 @@ public class RandomStockGenerator {
         for(int i=1; i<420; i++){
             
             double random = (double)(Math.random()*2-1)*variance;
-            output[i] = (int)(output[i-1] + random + 0.5);
+            if((int)(output[i-1] + random + 0.5) < 0 || (int)(output[i-1] + random + 0.5) > 700){
+                output[i] = output[i-1];
+            }else{
+                output[i] = (int)(output[i-1] + random + 0.5);
+            }
+            
         }
         return output;
     }
